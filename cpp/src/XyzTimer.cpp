@@ -10,7 +10,7 @@ XyzTimer::XyzTimer() :
 void XyzTimer::set(XyzTimerUnit unit, int value)
 {
     timerUnit_  = unit;
-    int timerValue_ = value;
+    timerValue_ = value;
 }
 
 void XyzTimer::encode(ByteBuffer& data)

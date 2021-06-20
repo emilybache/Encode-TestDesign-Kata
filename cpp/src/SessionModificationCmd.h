@@ -18,10 +18,20 @@ enum YEW {
     YewAlwaysOnSession = 0x9,
 };
 
+enum SRYP {
+    SessionManagement = 0x3,
+};
+
 class SessionModificationCmd {
 public:
     SessionModificationCmd(int sessionId, int transactionId) :
-            _type(SessionModification), _sessionId(sessionId), _transactionId(transactionId), _hasXyzTimer(false), _hasPqvl(false) {}
+            _type(SessionModification),
+            _sessionId(sessionId),
+            _transactionId(transactionId),
+            _hasXyzTimer(false),
+            _hasPqvl(false),
+            _pqvl(0),
+            _srypId(SessionManagement) {}
 
     void setXyzTimer(XyzTimerUnit unit, int timerValue);
     void setPqvl(int value);

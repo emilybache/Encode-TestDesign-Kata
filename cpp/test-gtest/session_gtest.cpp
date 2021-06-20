@@ -1,10 +1,13 @@
-#include <SessionModificationCmd.h>
-#include "ApprovalTests.hpp"
-#include "catch2/catch.hpp"
-#include "../test-gtest/HexStringEncoder.h"
+#include <gtest/gtest.h>
 
+#include "SessionModificationCmd.h"
+#include "ByteBuffer.h"
+#include "XyzTimer.h"
+#include "HexStringEncoder.h"
 
-TEST_CASE ("SessionModificationCmd") {
+using namespace std;
+
+TEST(MessageTest, SessionModificationCmd) {
     SessionModificationCmd command(1, 1);
     ByteBuffer data;
     command.setXyzTimer(MultiplesOfHours, 23);
@@ -13,18 +16,15 @@ TEST_CASE ("SessionModificationCmd") {
     std::string hexStr;
     HexStringEncoder hex;
     hexStr = hex.encode(data);
-    REQUIRE(hexStr == "60010101082091");
+    ASSERT_EQ(hexStr, "03010101083791");
 
     command.setXyzTimer(MultipliesOfMinutes, 32); // outside range(31), expect 31
     command.encode(data);
     hexStr = hex.encode(data);
-    REQUIRE(hexStr == "b0010101084091");
+    ASSERT_EQ(hexStr, "03010101085f91");
 
     command.setXyzTimer(TimerDeactivated, 2); // deactivated, expect value 0
     command.encode(data);
     hexStr = hex.encode(data);
-    REQUIRE(hexStr == "d0010101082091");
-
+    ASSERT_EQ(hexStr, "03010101080091");
 }
-
-
