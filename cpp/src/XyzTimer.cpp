@@ -1,4 +1,4 @@
-
+    
 
 #include <iostream>
 #include "XyzTimer.h"
@@ -27,7 +27,7 @@ void XyzTimer::encode(ByteBuffer& data)
         }
         else
         {
-            std::cout << "GPRS timer value out of range. Encoding max value" << std::endl;
+            std::cout << "XYZ timer value out of range. Encoding max value" << std::endl;
             temp |= 0x1F;
         }
     }
