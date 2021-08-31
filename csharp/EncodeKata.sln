@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodeKata", "EncodeKata\EncodeKata.csproj", "{6264E508-3087-4782-826E-4172B3F2F76D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{18EC582B-6EB9-468A-8B4E-37285B8EC33D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6264E508-3087-4782-826E-4172B3F2F76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6264E508-3087-4782-826E-4172B3F2F76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6264E508-3087-4782-826E-4172B3F2F76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6264E508-3087-4782-826E-4172B3F2F76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18EC582B-6EB9-468A-8B4E-37285B8EC33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18EC582B-6EB9-468A-8B4E-37285B8EC33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18EC582B-6EB9-468A-8B4E-37285B8EC33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18EC582B-6EB9-468A-8B4E-37285B8EC33D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
