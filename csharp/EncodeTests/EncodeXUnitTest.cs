@@ -5,28 +5,48 @@ using Xunit;
 public class EncodeXUnitTest
 {
     [Fact]
-    public void MessageTest()
+    public void ModifySessionTimer()
     {
         var command = new SessionModificationCmd(1, 1);
         var data = new ByteBuffer();
         command.setXyzTimer(XyzTimerUnit.MultiplesOfHours, 23);
         command.setPqvl(1);
+        
         command.encode(data);
+        
         var hex = new HexStringEncoder();
         var hexStr = hex.encode(data);
-        Console.Write("Hex: " + hexStr + "\n");
         Assert.Equal("03010101083791", hexStr);
+    }
 
+    [Fact]
+    public void TimerOutsideRange()
+    {
+        var command = new SessionModificationCmd(1, 1);
+        var data = new ByteBuffer();
+        command.setPqvl(1);
         command.setXyzTimer(XyzTimerUnit.MultipliesOfMinutes, 32); // outside range(31), expect 31
+        
         command.encode(data);
-        hexStr = hex.encode(data);
-        Console.Write("Hex: " + hexStr + "\n");
+
+        var hex = new HexStringEncoder();
+        var hexStr = hex.encode(data);
         Assert.Equal("03010101085f91", hexStr);
         
+    }
+
+    [Fact]
+    public void DeactivatedTimer()
+    {
+        var command = new SessionModificationCmd(1, 1);
+        var data = new ByteBuffer();
+        command.setPqvl(1);
         command.setXyzTimer(XyzTimerUnit.TimerDeactivated, 2); // deactivated, expect value 0
+        
         command.encode(data);
-        hexStr = hex.encode(data);
-        Console.Write("Hex: " + hexStr + "\n");
+        
+        var hex = new HexStringEncoder();
+        var hexStr = hex.encode(data);
         Assert.Equal("03010101080091", hexStr);
     }
 
@@ -66,5 +86,5 @@ public class EncodeXUnitTest
 
             return str;
         }
-    }   
+    }
 }
