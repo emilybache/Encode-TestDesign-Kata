@@ -4,33 +4,40 @@ using Xunit;
 
 public class EncodeXUnitTest
 {
+    private HexStringEncoder hexStringEncoder = new HexStringEncoder();
+
+    private static SessionModificationCmd CreateSessionModificationCmdWithTimer(XyzTimerUnit timerUnit, int timerValue)
+    {
+        var command = new SessionModificationCmd(1, 1);
+        command.setPqvl(1);
+        command.setXyzTimer(timerUnit, timerValue);
+        return command;
+    }
+
     [Fact]
     public void ModifySessionTimer()
     {
-        var command = new SessionModificationCmd(1, 1);
+        var timerUnit = XyzTimerUnit.MultiplesOfHours;
+        var timerValue = 23;
+        var command = CreateSessionModificationCmdWithTimer(timerUnit, timerValue);
         var data = new ByteBuffer();
-        command.setXyzTimer(XyzTimerUnit.MultiplesOfHours, 23);
-        command.setPqvl(1);
         
         command.encode(data);
-        
-        var hex = new HexStringEncoder();
-        var hexStr = hex.encode(data);
+
+        var hexStr = hexStringEncoder.encode(data);
         Assert.Equal("03010101083791", hexStr);
     }
 
     [Fact]
     public void TimerOutsideRange()
     {
-        var command = new SessionModificationCmd(1, 1);
+        var timerValue = 32; // outside range(31)
+        var command = CreateSessionModificationCmdWithTimer(XyzTimerUnit.MultipliesOfMinutes, timerValue);
         var data = new ByteBuffer();
-        command.setPqvl(1);
-        command.setXyzTimer(XyzTimerUnit.MultipliesOfMinutes, 32); // outside range(31), expect 31
-        
+
         command.encode(data);
 
-        var hex = new HexStringEncoder();
-        var hexStr = hex.encode(data);
+        var hexStr = hexStringEncoder.encode(data);
         Assert.Equal("03010101085f91", hexStr);
         
     }
@@ -38,15 +45,13 @@ public class EncodeXUnitTest
     [Fact]
     public void DeactivatedTimer()
     {
-        var command = new SessionModificationCmd(1, 1);
+        var timerUnit = XyzTimerUnit.TimerDeactivated;
+        var command = CreateSessionModificationCmdWithTimer(timerUnit, 2);
         var data = new ByteBuffer();
-        command.setPqvl(1);
-        command.setXyzTimer(XyzTimerUnit.TimerDeactivated, 2); // deactivated, expect value 0
-        
+
         command.encode(data);
-        
-        var hex = new HexStringEncoder();
-        var hexStr = hex.encode(data);
+
+        var hexStr = hexStringEncoder.encode(data);
         Assert.Equal("03010101080091", hexStr);
     }
 
