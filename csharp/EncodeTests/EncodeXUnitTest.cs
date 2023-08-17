@@ -1,10 +1,10 @@
 using System;
 using EncodeKata;
-using NUnit.Framework;
+using Xunit;
 
-class EncodeTests
+public class EncodeXUnitTest
 {
-    [Test]
+    [Fact]
     public void MessageTest()
     {
         var command = new SessionModificationCmd(1, 1);
@@ -15,19 +15,19 @@ class EncodeTests
         var hex = new HexStringEncoder();
         var hexStr = hex.encode(data);
         Console.Write("Hex: " + hexStr + "\n");
-        Assert.AreEqual(hexStr, "03010101083791");
+        Assert.Equal("03010101083791", hexStr);
 
         command.setXyzTimer(XyzTimerUnit.MultipliesOfMinutes, 32); // outside range(31), expect 31
         command.encode(data);
         hexStr = hex.encode(data);
         Console.Write("Hex: " + hexStr + "\n");
-        Assert.AreEqual(hexStr, "03010101085f91");
-
+        Assert.Equal("03010101085f91", hexStr);
+        
         command.setXyzTimer(XyzTimerUnit.TimerDeactivated, 2); // deactivated, expect value 0
         command.encode(data);
         hexStr = hex.encode(data);
         Console.Write("Hex: " + hexStr + "\n");
-        Assert.AreEqual(hexStr, "03010101080091");
+        Assert.Equal("03010101080091", hexStr);
     }
 
     public class HexStringEncoder
@@ -66,5 +66,5 @@ class EncodeTests
 
             return str;
         }
-    }
+    }   
 }
