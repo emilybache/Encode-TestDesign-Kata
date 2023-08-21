@@ -2,6 +2,8 @@ using System;
 using EncodeKata;
 using Xunit;
 
+namespace EncodeTests;
+
 public class EncodeXUnitTest
 {
     [Fact]

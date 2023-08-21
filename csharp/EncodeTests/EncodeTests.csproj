@@ -4,8 +4,6 @@
         <TargetFramework>net7.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
-
-        <RootNamespace>TestProject1</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

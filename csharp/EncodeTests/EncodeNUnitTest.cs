@@ -2,6 +2,8 @@ using System;
 using EncodeKata;
 using NUnit.Framework;
 
+namespace EncodeTests;
+
 class EncodeNUnitTest
 {
     [Test]
