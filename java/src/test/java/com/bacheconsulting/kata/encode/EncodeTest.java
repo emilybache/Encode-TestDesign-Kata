@@ -2,6 +2,8 @@ package com.bacheconsulting.kata.encode;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HexFormat;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 final class EncodeTest {
@@ -33,31 +35,19 @@ final class EncodeTest {
     }
 
     private static class HexStringEncoder {
+
         public String encode(ByteBuffer buffer) {
-            String str = "";
+            var hex = new StringBuilder();
+
+            HexFormat format = HexFormat.of();
             while (buffer.getAvailable() > 0) {
                 int octet = buffer.read();
-                int tmp1 = (octet >> 4) & 0x0F;
-                int tmp2 = octet & 0x0F;
-                char char1;
-                char char2;
-                if (tmp1 <= 9) {
-                    char1 = (char) (tmp1 + '0');
-                } else {
-                    char1 = (char) (tmp1 - 10 + 'a');
-                }
 
-                if (tmp2 <= 9) {
-                    char2 = (char) (tmp2 + '0');
-                } else {
-                    char2 = (char) (tmp2 - 10 + 'a');
-                }
-
-                str += char1;
-                str += char2;
+                hex.append(format.toHighHexDigit(octet));
+                hex.append(format.toLowHexDigit(octet));
             }
 
-            return str;
+            return hex.toString();
         }
     }
 }
