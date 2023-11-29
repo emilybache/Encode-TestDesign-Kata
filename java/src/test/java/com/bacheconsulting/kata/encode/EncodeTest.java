@@ -1,4 +1,4 @@
-package encodeKata;
+package com.bacheconsulting.kata.encode;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

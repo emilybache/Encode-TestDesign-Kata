@@ -1,4 +1,4 @@
-package encodeKata;
+package com.bacheconsulting.kata.encode;
 
 import java.util.ArrayList;
 import java.util.List;

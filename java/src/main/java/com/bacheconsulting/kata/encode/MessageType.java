@@ -1,4 +1,4 @@
-package encodeKata;
+package com.bacheconsulting.kata.encode;
 
 public enum MessageType {
     SessionCreation(0),
