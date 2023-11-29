@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 final class EncodeTest {
 
     @Test
-    void MessageTest() {
+    void messageTest() {
         var command = new SessionModificationCmd(1, 1);
         var data = new ByteBuffer();
         command.setXyzTimer(XyzTimerUnit.MULTIPLES_OF_HOURS, 23);
