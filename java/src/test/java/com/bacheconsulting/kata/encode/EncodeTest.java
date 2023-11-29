@@ -1,7 +1,8 @@
 package com.bacheconsulting.kata.encode;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 final class EncodeTest {
 
@@ -16,19 +17,19 @@ final class EncodeTest {
         var hex = new HexStringEncoder();
         String hexStr = hex.encode(data);
         System.out.println("Hex: " + hexStr + "\n");
-        Assertions.assertEquals(hexStr, "03010101083791");
+        assertEquals("03010101083791", hexStr);
 
         command.setXyzTimer(XyzTimerUnit.MULTIPLIES_OF_MINUTES, 32); // outside range(31), expect 31
         command.encode(data);
         hexStr = hex.encode(data);
         System.out.println("Hex: " + hexStr + "\n");
-        Assertions.assertEquals(hexStr, "03010101085f91");
+        assertEquals("03010101085f91", hexStr);
 
         command.setXyzTimer(XyzTimerUnit.TIMER_DEACTIVATED, 2); // deactivated, expect value 0
         command.encode(data);
         hexStr = hex.encode(data);
         System.out.println("Hex: " + hexStr + "\n");
-        Assertions.assertEquals(hexStr, "03010101080091");
+        assertEquals("03010101080091", hexStr);
     }
 
     private static class HexStringEncoder {
