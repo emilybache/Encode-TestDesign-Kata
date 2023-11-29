@@ -13,5 +13,4 @@ public enum YEW {
     public int code() {
         return this.code;
     }
-
 }

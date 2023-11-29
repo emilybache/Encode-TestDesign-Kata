@@ -1,6 +1,7 @@
 package com.bacheconsulting.kata.encode;
 
 public class SessionModificationCmd {
+
     private final MessageType messageType;
     private final int sessionId;
     private final int transactionId;

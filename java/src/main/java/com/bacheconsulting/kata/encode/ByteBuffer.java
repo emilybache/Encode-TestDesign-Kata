@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ByteBuffer {
+
     private final List<Integer> buffer = new ArrayList<>();
     private int current;
 
@@ -20,5 +21,4 @@ public class ByteBuffer {
     public int getAvailable() {
         return buffer.size() - current;
     }
-
 }
