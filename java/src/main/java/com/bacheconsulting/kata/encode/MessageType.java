@@ -12,6 +12,6 @@ enum MessageType {
     }
 
     int code() {
-        return this.code;
+        return code;
     }
 }

@@ -10,6 +10,6 @@ enum SRYP {
     }
 
     int code() {
-        return this.code;
+        return code;
     }
 }

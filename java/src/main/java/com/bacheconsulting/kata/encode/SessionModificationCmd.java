@@ -20,30 +20,30 @@ public class SessionModificationCmd {
     }
 
     public void setXyzTimer(XyzTimerUnit unit, int timerValue) {
-        this.hasXyzTimer = true;
-        this.xyzTimer.set(unit, timerValue);
+        hasXyzTimer = true;
+        xyzTimer.set(unit, timerValue);
     }
 
     public void setPqvl(int value) {
-        this.hasPqvl = true;
-        this.pqvl = value;
+        hasPqvl = true;
+        pqvl = value;
     }
 
     public void encode(ByteBuffer data) {
-        data.append(this.srypId.code());
-        data.append(this.sessionId);
-        data.append(this.transactionId);
-        data.append(this.messageType.code());
+        data.append(srypId.code());
+        data.append(sessionId);
+        data.append(transactionId);
+        data.append(messageType.code());
 
-        if (this.hasXyzTimer) {
-            this.xyzTimer.encode(data);
+        if (hasXyzTimer) {
+            xyzTimer.encode(data);
         }
-        if (this.hasPqvl) {
-            this.encodePqvl(data);
+        if (hasPqvl) {
+            encodePqvl(data);
         }
     }
 
     private void encodePqvl(ByteBuffer data) {
-        data.append((YEW.YEW_ALWAYS_ON_SESSION.code() << 4) | (this.pqvl & 0x01));
+        data.append((YEW.YEW_ALWAYS_ON_SESSION.code() << 4) | (pqvl & 0x01));
     }
 }

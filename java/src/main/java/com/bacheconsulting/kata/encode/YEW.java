@@ -11,6 +11,6 @@ enum YEW {
     }
 
     int code() {
-        return this.code;
+        return code;
     }
 }
