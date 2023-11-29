@@ -1,6 +1,6 @@
 package com.bacheconsulting.kata.encode;
 
-public class XyzTimer {
+final class XyzTimer {
 
     private XyzTimerUnit timerUnit;
     private int timerValue;

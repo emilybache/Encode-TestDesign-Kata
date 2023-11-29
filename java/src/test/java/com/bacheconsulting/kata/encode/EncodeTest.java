@@ -3,10 +3,10 @@ package com.bacheconsulting.kata.encode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class EncodeTest {
+final class EncodeTest {
 
     @Test
-    public void MessageTest() {
+    void MessageTest() {
         var command = new SessionModificationCmd(1, 1);
         var data = new ByteBuffer();
         command.setXyzTimer(XyzTimerUnit.MULTIPLES_OF_HOURS, 23);
@@ -31,7 +31,7 @@ public class EncodeTest {
         Assertions.assertEquals(hexStr, "03010101080091");
     }
 
-    static class HexStringEncoder {
+    private static class HexStringEncoder {
         public String encode(ByteBuffer buffer) {
             String str = "";
             while (buffer.getAvailable() > 0) {

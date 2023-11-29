@@ -1,6 +1,6 @@
 package com.bacheconsulting.kata.encode;
 
-public enum SRYP {
+enum SRYP {
     SESSION_MANAGEMENT(3);
 
     private final int code;
@@ -9,7 +9,7 @@ public enum SRYP {
         this.code = code;
     }
 
-    public int code() {
+    int code() {
         return this.code;
     }
 }

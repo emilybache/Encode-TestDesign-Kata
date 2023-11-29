@@ -1,6 +1,6 @@
 package com.bacheconsulting.kata.encode;
 
-public enum YEW {
+enum YEW {
     YEW_XYZ_TIMER(8),
     YEW_ALWAYS_ON_SESSION(9);
 
@@ -10,7 +10,7 @@ public enum YEW {
         this.code = code;
     }
 
-    public int code() {
+    int code() {
         return this.code;
     }
 }

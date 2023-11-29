@@ -1,6 +1,6 @@
 package com.bacheconsulting.kata.encode;
 
-public enum MessageType {
+enum MessageType {
     SESSION_CREATION(0),
     SESSION_MODIFICATION(1),
     SESSION_DELETE(2);
@@ -11,7 +11,7 @@ public enum MessageType {
         this.code = code;
     }
 
-    public int code() {
+    int code() {
         return this.code;
     }
 }
