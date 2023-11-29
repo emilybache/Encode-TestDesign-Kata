@@ -11,11 +11,11 @@ public class SessionModificationCmd {
     private final XyzTimer xyzTimer;
 
     public SessionModificationCmd(int sessionId, int transactionId) {
-        this.messageType = MessageType.SessionModification;
+        this.messageType = MessageType.SESSION_MODIFICATION;
         this.sessionId = sessionId;
         this.transactionId = transactionId;
         this.xyzTimer = new XyzTimer();
-        this.srypId = SRYP.SessionManagement;
+        this.srypId = SRYP.SESSION_MANAGEMENT;
     }
 
     public void setXyzTimer(XyzTimerUnit unit, int timerValue) {
@@ -43,6 +43,6 @@ public class SessionModificationCmd {
     }
 
     private void encodePqvl(ByteBuffer data) {
-        data.append((YEW.YewAlwaysOnSession.code() << 4) | (this.pqvl & 0x01));
+        data.append((YEW.YEW_ALWAYS_ON_SESSION.code() << 4) | (this.pqvl & 0x01));
     }
 }

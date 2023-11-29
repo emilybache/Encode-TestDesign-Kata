@@ -1,8 +1,8 @@
 package com.bacheconsulting.kata.encode;
 
 public enum YEW {
-    YewXyzTimer(8),
-    YewAlwaysOnSession(9);
+    YEW_XYZ_TIMER(8),
+    YEW_ALWAYS_ON_SESSION(9);
 
     private final int code;
 

@@ -1,7 +1,7 @@
 package com.bacheconsulting.kata.encode;
 
 public enum SRYP {
-    SessionManagement(3);
+    SESSION_MANAGEMENT(3);
 
     private final int code;
 

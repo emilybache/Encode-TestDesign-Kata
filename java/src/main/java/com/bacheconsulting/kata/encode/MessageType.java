@@ -1,9 +1,9 @@
 package com.bacheconsulting.kata.encode;
 
 public enum MessageType {
-    SessionCreation(0),
-    SessionModification(1),
-    SessionDelete(2);
+    SESSION_CREATION(0),
+    SESSION_MODIFICATION(1),
+    SESSION_DELETE(2);
 
     private final int code;
 

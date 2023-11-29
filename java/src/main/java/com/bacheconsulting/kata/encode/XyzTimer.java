@@ -11,11 +11,11 @@ public class XyzTimer {
     }
 
     public void encode(ByteBuffer data) {
-        data.append(YEW.YewXyzTimer.code());
+        data.append(YEW.YEW_XYZ_TIMER.code());
         int temp;
         temp = (this.timerUnit.ordinal() << 5);
 
-        if (this.timerUnit != XyzTimerUnit.TimerDeactivated) {
+        if (this.timerUnit != XyzTimerUnit.TIMER_DEACTIVATED) {
             if (this.timerValue <= 0x1F) {
                 temp |= (this.timerValue & 0x1F);
             } else {
