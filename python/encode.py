@@ -15,7 +15,7 @@ class XyzTimerUnit(Enum):
 
 
 class SRYP(Enum):
-    SessionManagement = 0
+    SessionManagement = 3
 
 
 class YEW(Enum):

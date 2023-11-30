@@ -1,6 +1,6 @@
-package encodeKata;
+package org.codingdojo.kata.encode;
 
-public class XyzTimer {
+final class XyzTimer {
 
     private XyzTimerUnit timerUnit;
     private int timerValue;
@@ -11,13 +11,13 @@ public class XyzTimer {
     }
 
     public void encode(ByteBuffer data) {
-        data.append(YEW.YewXyzTimer.code());
+        data.append(YEW.YEW_XYZ_TIMER.code());
         int temp;
-        temp = (this.timerUnit.ordinal() << 5);
+        temp = (timerUnit.ordinal() << 5);
 
-        if (this.timerUnit != XyzTimerUnit.TimerDeactivated) {
-            if (this.timerValue <= 0x1F) {
-                temp |= (this.timerValue & 0x1F);
+        if (timerUnit != XyzTimerUnit.TIMER_DEACTIVATED) {
+            if (timerValue <= 0x1F) {
+                temp |= (timerValue & 0x1F);
             } else {
                 System.out.print("XYZ timer value out of range. Encoding max value\n");
                 temp |= 0x1F;
@@ -26,4 +26,3 @@ public class XyzTimer {
         data.append(temp);
     }
 }
-
