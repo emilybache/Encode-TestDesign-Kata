@@ -1,4 +1,4 @@
-package com.bacheconsulting.kata.encode;
+package org.codingdojo.kata.encode;
 
 import org.junit.jupiter.api.Test;
 

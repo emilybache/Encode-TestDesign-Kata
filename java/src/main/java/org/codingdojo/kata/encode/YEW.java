@@ -1,4 +1,4 @@
-package com.bacheconsulting.kata.encode;
+package org.codingdojo.kata.encode;
 
 enum YEW {
     YEW_XYZ_TIMER(8),
