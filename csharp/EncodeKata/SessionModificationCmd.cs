@@ -22,19 +22,19 @@ namespace EncodeKata
             this.srypId = SRYP.SessionManagement;
         }
 
-        public void setXyzTimer(XyzTimerUnit unit, int timerValue)
+        public void SetXyzTimer(XyzTimerUnit unit, int timerValue)
         {
             this.hasXyzTimer = true;
-            this.xyzTimer.set(unit, timerValue);
+            this.xyzTimer.Set(unit, timerValue);
         }
 
-        public void setPqvl(int value)
+        public void SetPqvl(int value)
         {
             this.hasPqvl = true;
             this.pqvl = value;
         }   
 
-        public void encode(ByteBuffer data)
+        public void Encode(ByteBuffer data)
         {
             data.Append((int)this.srypId);
             data.Append(this.sessionId);
@@ -43,7 +43,7 @@ namespace EncodeKata
 
             if (this.hasXyzTimer)
             {
-                this.xyzTimer.encode(data);
+                this.xyzTimer.Encode(data);
             }
             if (this.hasPqvl)
             {
@@ -62,13 +62,13 @@ namespace EncodeKata
         private XyzTimerUnit timerUnit;
         private int timerValue;
 
-        public void set(XyzTimerUnit unit, int timerValue)
+        public void Set(XyzTimerUnit unit, int timerValue)
         {
             this.timerUnit = unit;
             this.timerValue = timerValue;
         }
 
-        public void encode(ByteBuffer data)
+        public void Encode(ByteBuffer data)
         {
             data.Append((int)YEW.YewXyzTimer);
             int temp;
