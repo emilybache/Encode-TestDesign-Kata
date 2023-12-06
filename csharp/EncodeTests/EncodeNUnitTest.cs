@@ -11,30 +11,30 @@ class EncodeNUnitTest
     {
         var command = new SessionModificationCmd(1, 1);
         var data = new ByteBuffer();
-        command.setXyzTimer(XyzTimerUnit.MultiplesOfHours, 23);
-        command.setPqvl(1);
-        command.encode(data);
+        command.SetXyzTimer(XyzTimerUnit.MultiplesOfHours, 23);
+        command.SetPqvl(1);
+        command.Encode(data);
         var hex = new HexStringEncoder();
-        var hexStr = hex.encode(data);
+        var hexStr = hex.Encode(data);
         Console.Write("Hex: " + hexStr + "\n");
-        Assert.AreEqual(hexStr, "03010101083791");
+        Assert.AreEqual("03010101083791", hexStr);
 
-        command.setXyzTimer(XyzTimerUnit.MultipliesOfMinutes, 32); // outside range(31), expect 31
-        command.encode(data);
-        hexStr = hex.encode(data);
+        command.SetXyzTimer(XyzTimerUnit.MultipliesOfMinutes, 32); // outside range(31), expect 31
+        command.Encode(data);
+        hexStr = hex.Encode(data);
         Console.Write("Hex: " + hexStr + "\n");
-        Assert.AreEqual(hexStr, "03010101085f91");
+        Assert.AreEqual( "03010101085f91", hexStr);
 
-        command.setXyzTimer(XyzTimerUnit.TimerDeactivated, 2); // deactivated, expect value 0
-        command.encode(data);
-        hexStr = hex.encode(data);
+        command.SetXyzTimer(XyzTimerUnit.TimerDeactivated, 2); // deactivated, expect value 0
+        command.Encode(data);
+        hexStr = hex.Encode(data);
         Console.Write("Hex: " + hexStr + "\n");
-        Assert.AreEqual(hexStr, "03010101080091");
+        Assert.AreEqual( "03010101080091", hexStr);
     }
 
     public class HexStringEncoder
     {
-        public string encode(ByteBuffer buffer)
+        public string Encode(ByteBuffer buffer)
         {
             string str = "";
             while (buffer.GetAvailable() > 0)
