@@ -14,7 +14,7 @@ class EncodeTests: XCTestCase {
         print("Hex: \(hexStr)")
         XCTAssertEqual(hexStr, "03010101083791")
 
-        command.setXyzTimer(unit: .multipliesOfMinutes, timerValue: 32) // outside range(31), expect 31
+        command.setXyzTimer(unit: .multiplesOfMinutes, timerValue: 32) // outside range(31), expect 31
         command.encode(data)
         let hexStr2 = hex.encode(data)
         print("Hex: \(hexStr2)")

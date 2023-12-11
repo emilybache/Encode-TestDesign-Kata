@@ -85,6 +85,6 @@ enum MessageType: Int {
 enum XyzTimerUnit: Int {
     case timerDeactivated
     case multiplesOfHours
-    case multipliesOfMinutes
+    case multiplesOfMinutes
     case multiplesOfSeconds
 }
