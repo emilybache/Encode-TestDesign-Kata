@@ -19,7 +19,7 @@ TEST_CASE ("SessionModificationCmd") {
     cout << "Hex: " << hexStr << endl;
     REQUIRE(hexStr == "03010101083791");
 
-    command.setXyzTimer(MultipliesOfMinutes, 32); // outside range(31), expect 31
+    command.setXyzTimer(MultiplesOfMinutes, 32); // outside range(31), expect 31
     command.encode(data);
     hexStr = hex.encode(data);
     cout << "Hex: " << hexStr << endl;

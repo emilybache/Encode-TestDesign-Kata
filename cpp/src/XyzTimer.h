@@ -6,7 +6,7 @@
 #include "ByteBuffer.h"
 
 enum XyzTimerUnit {
-    TimerDeactivated, MultiplesOfHours, MultipliesOfMinutes, MultiplesOfSeconds
+    TimerDeactivated, MultiplesOfHours, MultiplesOfMinutes, MultiplesOfSeconds
 };
 
 
