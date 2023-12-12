@@ -1,0 +1,26 @@
+{
+  "name": "encode-testDesign-kata",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "7.23.6",
+    "@babel/register": "^7.22.15",
+    "jasmine": "^5.1.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": []
+  }
+}
