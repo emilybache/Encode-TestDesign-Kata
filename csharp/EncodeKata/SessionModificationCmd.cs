@@ -110,7 +110,7 @@ namespace EncodeKata
     {
         TimerDeactivated,
         MultiplesOfHours,
-        MultipliesOfMinutes,
+        MultiplesOfMinutes,
         MultiplesOfSeconds,
     };
 }

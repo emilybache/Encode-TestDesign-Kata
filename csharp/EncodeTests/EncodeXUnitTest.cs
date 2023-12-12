@@ -19,7 +19,7 @@ public class EncodeXUnitTest
         Console.Write("Hex: " + hexStr + "\n");
         Assert.Equal("03010101083791", hexStr);
 
-        command.SetXyzTimer(XyzTimerUnit.MultipliesOfMinutes, 32); // outside range(31), expect 31
+        command.SetXyzTimer(XyzTimerUnit.MultiplesOfMinutes, 32); // outside range(31), expect 31
         command.Encode(data);
         hexStr = hex.Encode(data);
         Console.Write("Hex: " + hexStr + "\n");

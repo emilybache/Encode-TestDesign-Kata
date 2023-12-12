@@ -21,7 +21,7 @@ final class EncodeTest {
         System.out.println("Hex: " + hexStr + "\n");
         assertEquals("03010101083791", hexStr);
 
-        command.setXyzTimer(XyzTimerUnit.MULTIPLIES_OF_MINUTES, 32); // outside range(31), expect 31
+        command.setXyzTimer(XyzTimerUnit.MULTIPLES_OF_MINUTES, 32); // outside range(31), expect 31
         command.encode(data);
         hexStr = hex.encode(data);
         System.out.println("Hex: " + hexStr + "\n");
